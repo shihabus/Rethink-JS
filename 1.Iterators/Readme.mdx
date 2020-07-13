@@ -1,0 +1,32 @@
+### Iterators
+
+Lot of the time we are doing operations on data. This data can be an array, an object, a map or anything. The conventional process of accessing data is really imperative. While accessing the data we are more concerned about the way we access the rather or how we access it rather than what the data we are accessing itself. 
+
+What if we can change the manner in which data retrieval or accessing happens, where are able to concentrate on the data being access itself rather than the way or method how we access it. 
+
+Suppose the data is kind of stream and we are able to call some function, so that it gives us the next item in the stream. So it is like we are tapping water from a big jar. When you want water you turn the tap on. When you dont want it, stop the tap. 
+
+Now what will what should this tapping function will have.
+
+1. It will have a mechanism to access the elements
+2. A way to store the underlying collection
+3. A mechanism to remember last returned element or its position
+
+But the thing with a function is, each time it gets called a new execution context gets created and all things are brand new. It can remember what is was, when it was invoked last time. So here, this special function that we use for data accessing, would be returned by a parent function. A function returning another function, and that is a higher order function.  
+
+``` 
+function createNewFunction(arr)}{
+    let i=0;
+    function inner(){
+        const element=arr[i]
+        i++
+        return element
+    }
+    return inner
+}
+const accessElement=createNewFunction([4,5,6])
+const element1=accessElement()   // 4
+const element2=accessElement()   // 5
+```
+
+This brings us to iterators.
