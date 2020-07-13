@@ -1,4 +1,4 @@
-# Rethink-JS
+# Rethink-JS (WIP)
 A fairly unsaid JS concept HOWs.
 
 1. Iterators
