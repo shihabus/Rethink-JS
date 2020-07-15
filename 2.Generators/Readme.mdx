@@ -1,0 +1,16 @@
+Generators help us to create the iterators in JS. They are special functions that return iterators.
+
+
+Inorder to invoke the generator, we call the generator and assign it to a vairable. The returned object will be an iternator object with a next method on it. Inorder to invoke the generator we call the `.next()` on the iternator. 
+As special `yield` can be used inside the generator to pause the function execution. So the execution continous until a `yeild` keyword is encountered in the code. Inirder to resume the execution a further call has to be made on the `.next()` of the iterator. This continous until the next `yield` statement is met. The `yiled` keyword is so special that it can returnt its RHS. If `yeild` is used as the RHS, we can replace that entire RHS in the next `.next()` by passing an argument to it. So this offer the functionality to control our output or the value getting tapped out using iterator.
+
+```
+function* createFlow(){
+    const name=yeild 'hello'
+    console.log('hi ',+name)
+}
+
+const gen=createFlow()
+gen.next() // 'hello'
+gen.next('Shihab') // 'hi Shihab'
+```
